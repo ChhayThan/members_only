@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
+    <h1>Login in</h1>
+    <% if (locals.signedUp) { %>
+    <h2>Successfully signed up. Please log in.</h2>
+    <% } %>
+    <form action="/login" method="POST">
+      <label for="username">Username</label>
+      <input id="username" name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+      <button>Sign Up</button>
+    </form>
+  </body>
+</html>
