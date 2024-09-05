@@ -19,18 +19,18 @@ exports.handleSignUpPost = [
         if (err) {
           throw new Error(err);
         } else {
-          //   await db.insertUser(
-          //     req.body.first_name,
-          //     req.body.last_name,
-          //     req.body.email,
-          //     hashedPassword
-          //   ); // to be implemented in db/query
-          console.log(
+          await db.insertMember(
             req.body.first_name,
             req.body.last_name,
             req.body.email,
             hashedPassword
-          );
+          ); // to be implemented in db/query
+          // console.log(
+          //   req.body.first_name,
+          //   req.body.last_name,
+          //   req.body.email,
+          //   hashedPassword
+          // );
         }
       });
       res.redirect("/login?success=true");
