@@ -10,3 +10,26 @@ exports.insertMember = async (first_name, last_name, email, hashedPassword) => {
     throw new Error(err);
   }
 };
+
+exports.searchUsername = async (username) => {
+  try {
+    const { rows } = await pool.query(
+      "SELECT * FROM members WHERE email = $1",
+      [username]
+    );
+    return rows[0];
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+exports.selectUserById = async (id) => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM members WHERE id = $1", [
+      id,
+    ]);
+    return rows[0];
+  } catch (err) {
+    throw new Error(err);
+  }
+};
