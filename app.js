@@ -54,7 +54,7 @@ app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/login?auth=false",
+    failureRedirect: "/login?failed=true",
   })
 );
 

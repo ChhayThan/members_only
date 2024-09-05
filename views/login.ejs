@@ -10,6 +10,8 @@
     <h1>Login in</h1>
     <% if (locals.signedUp) { %>
     <h2>Successfully signed up. Please log in.</h2>
+    <% } else if (locals.auth) { %>
+    <h2>Incorrect Username or Password, please try again</h2>
     <% } %>
     <form action="/login" method="POST">
       <label for="username">Username</label>

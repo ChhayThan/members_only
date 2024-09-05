@@ -24,13 +24,7 @@ exports.handleSignUpPost = [
             req.body.last_name,
             req.body.email,
             hashedPassword
-          ); // to be implemented in db/query
-          // console.log(
-          //   req.body.first_name,
-          //   req.body.last_name,
-          //   req.body.email,
-          //   hashedPassword
-          // );
+          );
         }
       });
       res.redirect("/login?success=true");
