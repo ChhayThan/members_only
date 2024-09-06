@@ -1,5 +1,5 @@
 exports.getHome = (req, res) => {
-  res.render("index", { title: "Welcome to ClubStory" });
+  res.render("index", { title: "Welcome to ClubStory", user: req.user });
 };
 
 exports.getSignUpForm = (req, res) => {
@@ -9,5 +9,5 @@ exports.getSignUpForm = (req, res) => {
 exports.getLoginForm = (req, res) => {
   const signedUp = req.query.success;
   const auth = req.query.failed;
-  res.render("login", { signedUp, auth });
+  res.render("login", { signedUp, auth, user: req.user });
 };
