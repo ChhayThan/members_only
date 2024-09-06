@@ -7,25 +7,43 @@
     <link rel="stylesheet" href="/global.css" />
   </head>
   <body>
-    <h1>Sign Up</h1>
-    <%- include('./partials/errors.ejs') %>
-    <form action="/sign-up" method="POST">
-      <label for="first_name">First name</label>
-      <input id="first_name" name="first_name" placeholder="John" type="text" />
-      <label for="last_name">Last name</label>
-      <input id="last_name" name="last_name" placeholder="Doe" type="text" />
-      <label for="email">Email</label>
-      <input
-        id="email"
-        name="email"
-        placeholder="example@email.com"
-        type="email"
-      />
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password" />
-      <label for="confirm_password">Confirm Password</label>
-      <input id="confirm_password" name="confirm_password" type="password" />
-      <button>Sign Up</button>
-    </form>
+    <%- include('./partials/navBar') %> <%- include('./partials/errors.ejs') %>
+    <div class="signupContainer">
+      <form action="/sign-up" method="POST">
+        <fieldset>
+          <legend>Sign Up</legend>
+          <label for="first_name">First name</label>
+          <input
+            id="first_name"
+            name="first_name"
+            placeholder="John"
+            type="text"
+          />
+          <label for="last_name">Last name</label>
+          <input
+            id="last_name"
+            name="last_name"
+            placeholder="Doe"
+            type="text"
+          />
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            placeholder="example@email.com"
+            type="email"
+          />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" />
+          <label for="confirm_password">Confirm Password</label>
+          <input
+            id="confirm_password"
+            name="confirm_password"
+            type="password"
+          />
+          <button>Sign Up</button>
+        </fieldset>
+      </form>
+    </div>
   </body>
 </html>

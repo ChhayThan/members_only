@@ -1,0 +1,10 @@
+<nav class="navBar">
+  <div class="title">Member Mumbles</div>
+  <ul class="nav">
+    <li><a href="/" class="nav-link">Home</a></li>
+    <li><a href="/login" class="nav-link">Login</a></li>
+    <% if (locals.user) { %>
+    <li><a href="/login" class="nav-link">Become a Member</a></li>
+    <%}%>
+  </ul>
+</nav>

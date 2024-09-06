@@ -1,14 +1,101 @@
-body {
-  background-color: #1e201e;
-  color: #ecdfcc;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+
+nav.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  margin: 1em;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  gap: 1em;
+}
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+nav .title {
   font-weight: bold;
   font-size: 2em;
-  color: #ecdfcc;
 }
 
-span {
-  color: #697565;
+div.loginContainer,
+div.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2em;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+div.loginContainer form fieldset,
+div.signupContainer form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2em;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+}
+div.loginContainer form fieldset input,
+div.signupContainer form fieldset input {
+  padding: 1em;
+  border: none;
+  background-color: rgb(232, 232, 232);
+  border-radius: 10px;
+}
+div.loginContainer form fieldset button,
+div.signupContainer form fieldset button {
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgb(0, 183, 255);
+  color: white;
+}
+div.loginContainer form fieldset button:hover,
+div.signupContainer form fieldset button:hover {
+  background-color: rgb(0, 150, 210);
+  transition: background-color 200ms ease;
+}
+
+div.loginContainer form h2 {
+  margin-top: 1em;
+  text-align: center;
+}
+div.loginContainer form h2 a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+div.formError {
+  display: flex;
+  justify-content: center;
+}
+ul.errorUL {
+  font-weight: bold;
+  color: rgb(214, 41, 41);
+}
+ul.errorUL li {
+  list-style-type: disc;
 }

@@ -9,6 +9,5 @@ exports.getSignUpForm = (req, res) => {
 exports.getLoginForm = (req, res) => {
   const signedUp = req.query.success;
   const auth = req.query.failed;
-  console.log(auth);
   res.render("login", { signedUp, auth });
 };
