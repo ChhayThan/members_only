@@ -11,3 +11,12 @@ exports.getLoginForm = (req, res) => {
   const auth = req.query.failed;
   res.render("login", { signedUp, auth, user: req.user });
 };
+
+exports.getLogOut = (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title %></title>
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
+    <%- include('./partials/navBar') %>
+
+    <div class="joinContainer">
+      <% if (user) { %>
+      <h1><%= user.first_name%>, would you like to join as a MM?</h1>
+      <form action="/join" method="POST">
+        <fieldset>
+          <legend>Join Us!</legend>
+          <label for="secret">Secret</label>
+          <input type="password" name="secret" id="secret" />
+        </fieldset>
+      </form>
+
+      <%} else { %>
+      <h1>Looks like you are not logged in yet.</h1>
+      <h2>
+        Please <a href="/login">Login</a> Or <a href="/sign-up">Sign Up!</a>
+      </h2>
+      <%}%>
+    </div>
+  </body>
+</html>
