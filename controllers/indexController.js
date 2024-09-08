@@ -22,6 +22,9 @@ exports.getLogOut = (req, res) => {
 };
 
 exports.getJoin = (req, res) => {
-  console.log(req.user);
   res.render("join", { user: req.user, title: "Join as MM" });
+};
+
+exports.getMessageForm = (req, res) => {
+  res.render("messageForm", { user: req.user, title: "Message Form" });
 };
