@@ -1,4 +1,5 @@
 const { body } = require("express-validator");
+require("dotenv").config();
 
 const validateSignUp = [
   body("first_name")
@@ -46,7 +47,16 @@ const validateSignUp = [
 ];
 
 const validateJoin = [
-  body("secret").trim().notEmpty().withMessage("Secret is required"),
+  body("secret")
+    .trim()
+    .notEmpty()
+    .withMessage("Secret is required")
+    .custom((value) => {
+      if (value !== process.env.MM_SECRET) {
+        throw new Error("Incorrect Secret");
+      }
+      return true;
+    }),
 ];
 
 module.exports = { validateSignUp, validateJoin };
