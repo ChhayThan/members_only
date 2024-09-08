@@ -9,11 +9,11 @@
   <body>
     <%- include('./partials/navBar') %>
     <div class="loginContainer">
-      <% if (locals.user) { %>
+      <% if (locals.currentUser) { %>
       <div class="loged">
         <h2>
-          Hello <%= user.first_name + " " + user.last_name %>, looks like you
-          are already logged in!
+          Hello <%= currentUser.first_name + " " + currentUser.last_name %>,
+          looks like you are already logged in!
         </h2>
         <h3>
           Click here to <a href="/">Home</a> or <a href="/logout">Logout</a>

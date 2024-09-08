@@ -59,4 +59,19 @@ const validateJoin = [
     }),
 ];
 
-module.exports = { validateSignUp, validateJoin };
+const validateMessage = [
+  body("message")
+    .trim()
+    .notEmpty()
+    .withMessage("Mumble is required.")
+    .isLength({ min: 5 })
+    .withMessage("Message must be at least 5 characters long"),
+  body("title")
+    .trim()
+    .notEmpty()
+    .withMessage("Title can't be empty.")
+    .isLength({ max: 100 })
+    .withMessage("Title must be at most 100 characters long"),
+];
+
+module.exports = { validateSignUp, validateJoin, validateMessage };

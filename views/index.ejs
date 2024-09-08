@@ -8,10 +8,37 @@
     <link rel="stylesheet" href="/global.css" />
   </head>
   <body>
-    <%- include('./partials/navBar') %> <% if (user) { %>
-    <h1>Welcome <%= user.first_name + " " + user.last_name %></h1>
-    <%if (user.membership_status) { %>
-    <h2>You are a member!</h2>
-    <%} %> <%}%>
+    <%- include('./partials/navBar') %>
+    <div class="headContainer">
+      <% if (locals.currentUser) { %>
+      <h1>
+        Welcome back,
+        <span><%= currentUser.first_name + " " + currentUser.last_name%></span>
+      </h1>
+      <%if (locals.currentUser.membership_status) { %>
+      <h2>You are a member!</h2>
+      <%} %> <%} else { %>
+      <h1>Welcome to <span>Member Mumbles</span></h1>
+      <h2>Here lies the mumbles of our members!</h2>
+      <%}%>
+    </div>
+    <div class="messages">
+      <% if (locals.messages && locals.messages.length > 0) { %> <%
+      messages.forEach((message) => { %>
+      <div class="messageContainer">
+        <h1>
+          <%= locals.currentUser && locals.currentUser.membership_status ?
+          message.title : "Anonymous" %>
+        </h1>
+        <h2>
+          <%= locals.currentUser && locals.currentUser.membership_status ? new
+          Date(message.date).toLocaleDateString() : "YYYY-MM-DD" %>
+        </h2>
+        <p><%= message.description %></p>
+      </div>
+      <% }) %> <% } else { %>
+      <h1>No one has been mumbling :&#40;</h1>
+      <% } %>
+    </div>
   </body>
 </html>

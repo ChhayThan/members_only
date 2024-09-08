@@ -48,3 +48,32 @@ exports.updateMembershipStatus = async (userId) => {
     throw new Error(err);
   }
 };
+
+exports.insertMessage = async (user, title, message) => {
+  try {
+    const date = new Date();
+    await pool.query(
+      "INSERT INTO messages (title, date, description, user_id) VALUES ($1, $2, $3, $4);",
+      [title, date, message, user.id]
+    );
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+exports.getAllMessages = async () => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM messages;");
+    return rows;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+exports.getUsers = async () => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM members;");
+    return rows;
+  } catch (err) {
+    throw new Error(err);
+  }
+};

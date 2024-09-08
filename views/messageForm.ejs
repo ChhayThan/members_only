@@ -9,12 +9,12 @@
   </head>
   <body>
     <%- include('./partials/navBar') %> <%- include('./partials/errors.ejs') %>
-    <% if (locals.user) { %>
+    <% if (locals.currentUser) { %>
     <div class="messageFormContainer">
-      <form action="/message-form" method="post">
+      <form action="/message_form" method="post">
         <fieldset>
           <legend>Share a Mumble!</legend>
-          <label for="message">Mumble:</label>
+          <input type="text" name="title" id="title" placeholder="Title" />
           <textarea
             name="message"
             id="message"

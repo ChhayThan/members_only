@@ -1,4 +1,8 @@
-const { validateSignUp, validateJoin } = require("./validators/formValidation");
+const {
+  validateSignUp,
+  validateJoin,
+  validateMessage,
+} = require("./validators/formValidation");
 const { validationResult } = require("express-validator");
 
 const bcrypt = require("bcryptjs");
@@ -47,6 +51,26 @@ exports.postJoin = [
 
     try {
       await db.updateMembershipStatus(req.user.id);
+      res.redirect("/");
+    } catch (err) {
+      return next(err);
+    }
+  },
+];
+
+exports.postMessage = [
+  validateMessage,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("messageForm", {
+        errors: errors.array(),
+        user: req.user,
+      });
+    }
+
+    try {
+      await db.insertMessage(req.user, req.body.title, req.body.message);
       res.redirect("/");
     } catch (err) {
       return next(err);
