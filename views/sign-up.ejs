@@ -8,6 +8,17 @@
   </head>
   <body>
     <%- include('./partials/navBar') %> <%- include('./partials/errors.ejs') %>
+    <% if (locals.user) { %>
+    <div class="loged">
+      <h2>
+        Hello <%= user.first_name + " " + user.last_name %>, looks like you are
+        already logged in!
+      </h2>
+      <h3>
+        Click here to <a href="/">Home</a> or <a href="/logout">Logout</a>
+      </h3>
+    </div>
+    <%} else {%>
     <div class="signupContainer">
       <form action="/sign-up" method="POST">
         <fieldset>
@@ -45,5 +56,6 @@
         </fieldset>
       </form>
     </div>
+    <%}%>
   </body>
 </html>

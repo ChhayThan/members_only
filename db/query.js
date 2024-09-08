@@ -33,3 +33,18 @@ exports.selectUserById = async (id) => {
     throw new Error(err);
   }
 };
+
+exports.updateMembershipStatus = async (userId) => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM members WHERE id = $1", [
+      userId,
+    ]);
+    const updatedMemberShip = !rows[0].membership_status;
+    await pool.query(
+      "UPDATE members SET membership_status = $1 WHERE id = $2",
+      [updatedMemberShip, userId]
+    );
+  } catch (err) {
+    throw new Error(err);
+  }
+};

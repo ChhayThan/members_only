@@ -45,4 +45,8 @@ const validateSignUp = [
     }),
 ];
 
-module.exports = validateSignUp;
+const validateJoin = [
+  body("secret").trim().notEmpty().withMessage("Secret is required"),
+];
+
+module.exports = { validateSignUp, validateJoin };

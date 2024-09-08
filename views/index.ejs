@@ -10,6 +10,8 @@
   <body>
     <%- include('./partials/navBar') %> <% if (user) { %>
     <h1>Welcome <%= user.first_name + " " + user.last_name %></h1>
-    <%}%>
+    <%if (user.membership_status) { %>
+    <h2>You are a member!</h2>
+    <%} %> <%}%>
   </body>
 </html>

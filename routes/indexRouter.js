@@ -9,5 +9,8 @@ indexRouter.get("/sign-up", indexController.getSignUpForm);
 indexRouter.post("/sign-up", formController.handleSignUpPost);
 indexRouter.get("/login", indexController.getLoginForm);
 indexRouter.get("/logout", indexController.getLogOut);
+indexRouter.get("/join", indexController.getJoin);
+
+indexRouter.post("/join", formController.postJoin);
 
 module.exports = indexRouter;

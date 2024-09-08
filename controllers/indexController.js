@@ -3,7 +3,7 @@ exports.getHome = (req, res) => {
 };
 
 exports.getSignUpForm = (req, res) => {
-  res.render("sign-up");
+  res.render("sign-up", { user: req.user });
 };
 
 exports.getLoginForm = (req, res) => {
@@ -19,4 +19,9 @@ exports.getLogOut = (req, res) => {
     }
     res.redirect("/");
   });
+};
+
+exports.getJoin = (req, res) => {
+  console.log(req.user);
+  res.render("join", { user: req.user, title: "Join as MM" });
 };

@@ -9,7 +9,7 @@
   <body>
     <%- include('./partials/navBar') %>
     <div class="loginContainer">
-      <% if (user) { %>
+      <% if (locals.user) { %>
       <div class="loged">
         <h2>
           Hello <%= user.first_name + " " + user.last_name %>, looks like you
