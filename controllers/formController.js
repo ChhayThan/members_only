@@ -1,3 +1,4 @@
+require("dotenv").config();
 const {
   validateSignUp,
   validateJoin,
@@ -51,6 +52,9 @@ exports.postJoin = [
 
     try {
       await db.updateMembershipStatus(req.user.id);
+      if (req.body.admin === process.env.ADMIN) {
+        await db.updateAdminStatus(req.user.id);
+      }
       res.redirect("/");
     } catch (err) {
       return next(err);
@@ -77,3 +81,10 @@ exports.postMessage = [
     }
   },
 ];
+
+// exports.postUpdateProfile = [
+// to be implemented
+// ]
+
+// TO DO:
+// Add admin view, ability to get admin status and change/update profile

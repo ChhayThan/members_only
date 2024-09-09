@@ -4,7 +4,7 @@
     <% if (locals.currentUser) { %>
     <li><a href="/" class="nav-link">Home</a></li>
     <li><a href="/message_form" class="nav-link">Share a mumble</a></li>
-    <li><a href="/logout" class="nav-link">Logout</a></li>
+    <li><a href="/profile" class="nav-link">Profile</a></li>
     <%if (!locals.currentUser.membership_status) {%>
     <li><a href="/join" class="nav-link">Become a Member</a></li>
     <%}%> <%} else { %>

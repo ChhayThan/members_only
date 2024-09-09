@@ -16,4 +16,6 @@ indexRouter.post("/join", formController.postJoin);
 indexRouter.get("/message_form", indexController.getMessageForm);
 indexRouter.post("/message_form", formController.postMessage);
 
+indexRouter.get("/profile", indexController.getProfile);
+
 module.exports = indexRouter;

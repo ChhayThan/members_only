@@ -6,6 +6,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const db = require("./db/query");
 const bcrypt = require("bcryptjs");
+require("dotenv").config();
 
 const indexRouter = require("./routes/indexRouter");
 
@@ -51,6 +52,7 @@ app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  console.log(req.user);
   next();
 });
 

@@ -86,7 +86,8 @@ div.messageContainer p {
 div.loginContainer,
 div.signupContainer,
 div.joinContainer,
-div.messageFormContainer {
+div.messageFormContainer,
+div.profileContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,7 +105,8 @@ div.joinContainer {
 div.loginContainer form fieldset,
 div.signupContainer form fieldset,
 div.joinContainer form fieldset,
-div.messageFormContainer form fieldset {
+div.messageFormContainer form fieldset,
+div.profileContainer form fieldset {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -116,11 +118,13 @@ div.loginContainer form fieldset input,
 div.signupContainer form fieldset input,
 div.joinContainer form fieldset input,
 div.messageFormContainer form fieldset textarea,
-div.messageFormContainer form fieldset input {
+div.messageFormContainer form fieldset input,
+div.profileContainer form fieldset input {
   padding: 1em;
   border: none;
   background-color: rgb(232, 232, 232);
   border-radius: 10px;
+  min-width: 300px;
 }
 
 div.messageFormContainer form fieldset input {
@@ -139,7 +143,8 @@ div.messageFormContainer form fieldset textarea {
 div.loginContainer form fieldset button,
 div.signupContainer form fieldset button,
 div.joinContainer form fieldset button,
-div.messageFormContainer form fieldset button {
+div.messageFormContainer form fieldset button,
+div.profileContainer form fieldset button {
   padding: 1em;
   border: none;
   border-radius: 10px;
@@ -150,7 +155,8 @@ div.messageFormContainer form fieldset button {
 div.loginContainer form fieldset button:hover,
 div.signupContainer form fieldset button:hover,
 div.joinContainer form fieldset button:hover,
-div.messageFormContainer form fieldset button:hover {
+div.messageFormContainer form fieldset button:hover,
+div.profileContainer form fieldset button:hover {
   background-color: rgb(0, 150, 210);
   transition: background-color 200ms ease;
 }

@@ -3,7 +3,6 @@ const { getMessages } = require("../utils/getter");
 exports.getHome = async (req, res) => {
   try {
     const messages = await getMessages(); // Fetch messages
-    console.log(messages);
     res.render("index", { title: "Welcome to ClubStory", messages }); // Render the template
   } catch (error) {
     console.error(error);
@@ -36,4 +35,7 @@ exports.getJoin = (req, res) => {
 
 exports.getMessageForm = (req, res) => {
   res.render("messageForm", { title: "Message Form" });
+};
+exports.getProfile = (req, res) => {
+  res.render("profile", { title: "Profile" });
 };

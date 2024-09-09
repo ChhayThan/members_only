@@ -48,6 +48,20 @@ exports.updateMembershipStatus = async (userId) => {
     throw new Error(err);
   }
 };
+exports.updateAdminStatus = async (userId) => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM members WHERE id = $1", [
+      userId,
+    ]);
+    const updatedAdmin = !rows[0].admin;
+    await pool.query("UPDATE members SET admin = $1 WHERE id = $2", [
+      updatedAdmin,
+      userId,
+    ]);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
 
 exports.insertMessage = async (user, title, message) => {
   try {

@@ -26,10 +26,18 @@
       <% if (locals.messages && locals.messages.length > 0) { %> <%
       messages.forEach((message) => { %>
       <div class="messageContainer">
-        <h1>
-          <%= locals.currentUser && locals.currentUser.membership_status ?
-          message.title : "Anonymous" %>
-        </h1>
+        <div class="messageTitle">
+          <h1>
+            <%= locals.currentUser && locals.currentUser.membership_status ?
+            message.title : "Anonymous" %>
+          </h1>
+          <%if (locals.currentUser && locals.currentUser.admin) {%>
+          <form action="/" method="post">
+            <button type="submit" class="messageDeleteBtn">delete</button>
+          </form>
+          <%}%>
+        </div>
+
         <h2>
           <%= locals.currentUser && locals.currentUser.membership_status ? new
           Date(message.date).toLocaleDateString() : "YYYY-MM-DD" %>
