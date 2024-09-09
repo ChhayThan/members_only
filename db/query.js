@@ -69,9 +69,11 @@ exports.getAllMessages = async () => {
     throw new Error(err);
   }
 };
-exports.getUsers = async () => {
+exports.getUserById = async (userId) => {
   try {
-    const { rows } = await pool.query("SELECT * FROM members;");
+    const { rows } = await pool.query("SELECT * FROM members WHERE id = $1;", [
+      userId,
+    ]);
     return rows;
   } catch (err) {
     throw new Error(err);

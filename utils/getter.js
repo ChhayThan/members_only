@@ -1,11 +1,21 @@
 const db = require("../db/query");
 exports.getMessages = async () => {
   const queryResult = await db.getAllMessages();
-  console.log(queryResult);
-  return queryResult;
+
+  const messages = [];
+  for (const message of queryResult) {
+    const author = await this.getAuthor(message.user_id);
+    let title = author + " - " + message.title;
+    messages.push({
+      ...message,
+      title,
+    });
+  }
+  return messages;
 };
 
-exports.getUsers = async () => {
-  const queryResult = await db.getUsers();
-  return queryResult;
+exports.getAuthor = async (userId) => {
+  const queryResult = await db.getUserById(userId);
+  const author = queryResult[0].first_name + " " + queryResult[0].last_name;
+  return author;
 };
