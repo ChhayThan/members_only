@@ -26,11 +26,10 @@ CREATE TABLE IF NOT EXISTS messages (
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString:
-      "postgresql://ericchhour:Chhaythan2308@localhost:5432/members_only",
-    //   ssl: {
-    //     rejectUnauthorized: false, // This allows self-signed certificates. Set to true for strict SSL.
-    //   },
+    connectionString: CONNECTION_STRING,
+    ssl: {
+      rejectUnauthorized: false, // This allows self-signed certificates. Set to true for strict SSL.
+    },
   });
 
   await client.connect();

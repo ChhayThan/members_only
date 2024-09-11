@@ -123,7 +123,6 @@ exports.postUpdateProfile = [
 
 exports.deleteMessage = async (req, res) => {
   const messageId = req.body.messageId;
-  console.log(req.body);
   await db.deleteMessageById(messageId);
   res.redirect("/");
 };
