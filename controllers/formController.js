@@ -121,5 +121,9 @@ exports.postUpdateProfile = [
   },
 ];
 
-// TO DO:
-// Add admin view, ability to get admin status and change/update profile
+exports.deleteMessage = async (req, res) => {
+  const messageId = req.body.messageId;
+  console.log(req.body);
+  await db.deleteMessageById(messageId);
+  res.redirect("/");
+};

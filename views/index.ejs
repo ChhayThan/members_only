@@ -33,6 +33,12 @@
           </h1>
           <%if (locals.currentUser && locals.currentUser.admin) {%>
           <form action="/" method="post">
+            <input
+              type="number"
+              name="messageId"
+              id="messageId"
+              value="<%= message.id %>"
+            />
             <button type="submit" class="messageDeleteBtn">Remove</button>
           </form>
           <%}%>

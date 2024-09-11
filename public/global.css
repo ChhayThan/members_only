@@ -76,6 +76,9 @@ div.messageTitle {
   display: flex;
   justify-content: space-between;
 }
+div.messageTitle form input {
+  display: none;
+}
 div.messageTitle form button {
   border: none;
   background-color: white;

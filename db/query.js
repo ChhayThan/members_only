@@ -113,3 +113,11 @@ exports.updateProfile = async (
     throw new Error(err);
   }
 };
+
+exports.deleteMessageById = async (id) => {
+  try {
+    await pool.query("DELETE FROM messages WHERE id = $1;", [id]);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
