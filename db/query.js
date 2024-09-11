@@ -1,4 +1,6 @@
+const passport = require("passport");
 const pool = require("./pool");
+const { hash } = require("bcryptjs");
 
 exports.insertMember = async (first_name, last_name, email, hashedPassword) => {
   try {
@@ -89,6 +91,24 @@ exports.getUserById = async (userId) => {
       userId,
     ]);
     return rows;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+exports.updateProfile = async (
+  userId,
+  first_name,
+  last_name,
+  email,
+  hashedPassword,
+  admin
+) => {
+  try {
+    await pool.query(
+      "UPDATE members SET first_name = $1, last_name = $2, email = $3, password = $4, admin = $5 WHERE id = $6",
+      [first_name, last_name, email, hashedPassword, admin, userId]
+    );
   } catch (err) {
     throw new Error(err);
   }

@@ -37,5 +37,6 @@ exports.getMessageForm = (req, res) => {
   res.render("messageForm", { title: "Message Form" });
 };
 exports.getProfile = (req, res) => {
-  res.render("profile", { title: "Profile" });
+  const updated = req.query.updated;
+  res.render("profile", { title: "Profile", updated });
 };

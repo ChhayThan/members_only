@@ -17,5 +17,6 @@ indexRouter.get("/message_form", indexController.getMessageForm);
 indexRouter.post("/message_form", formController.postMessage);
 
 indexRouter.get("/profile", indexController.getProfile);
+indexRouter.post("/profile", formController.postUpdateProfile);
 
 module.exports = indexRouter;

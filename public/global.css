@@ -71,11 +71,24 @@ div.messageContainer {
 
   min-width: 500px;
 }
+
+div.messageTitle {
+  display: flex;
+  justify-content: space-between;
+}
+div.messageTitle form button {
+  border: none;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
 div.messageContainer h1 {
   color: rgb(71, 71, 71);
   font-weight: bold;
   font-size: 1.3em;
 }
+
 div.messageContainer h2 {
   margin-top: 5px;
   font-style: italic;
@@ -96,6 +109,10 @@ div.profileContainer {
   padding: 2em;
   border-radius: 10px;
   font-size: 1.2em;
+}
+
+div.profileContainer {
+  gap: 1em;
 }
 
 div.joinContainer {
@@ -159,6 +176,14 @@ div.messageFormContainer form fieldset button:hover,
 div.profileContainer form fieldset button:hover {
   background-color: rgb(0, 150, 210);
   transition: background-color 200ms ease;
+}
+
+div.profileContainer a.logoutBtn {
+  color: red;
+}
+div.profileContainer a.logoutBtn:hover,
+div.messageTitle form button:hover {
+  color: crimson;
 }
 
 div.loginContainer form h2 {

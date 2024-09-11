@@ -11,10 +11,14 @@
     <%- include('./partials/navBar') %> <%- include('./partials/errors.ejs') %>
 
     <div class="profileContainer">
-      <% if (locals.currentUser) { %>
+      <% if (locals.currentUser) { %> <% if (locals.updated) { %>
+      <p>Profile Updated Successfully</p>
+      <%}%>
       <form action="/profile" method="post">
         <fieldset>
-          <legend>Profile</legend>
+          <legend>
+            <%= locals.currentUser.admin ? "Admin " : null %>Profile
+          </legend>
           <label for="first_name">First name</label>
           <input
             id="first_name"
@@ -39,25 +43,27 @@
             type="email"
             value="<%= currentUser.email %>"
           />
-          <label for="password">Password</label>
+          <label for="password">Current Password</label>
           <input id="password" name="password" type="password" />
           <label for="updated_password">Update Password</label>
           <input
             id="updated_password"
             name="updated_password"
             type="password"
+            placeholder="Optional"
           />
           <label for="membership_status">Membership Status</label>
           <input type="checkbox" name="membership_status" id="membership_status"
           // prettier-ignore <% if (locals.currentUser.membership_status) { %>
-          checked="true" <% } %> disabled />
-
+          checked="true" <% } %> disabled /> <%if (!locals.currentUser.admin){%>
           <label for="admin">Admin Access</label>
           <input type="text" name="admin" id="admin" placeholder="Optional" />
+          <%}%>
 
-          <button>Update</button>
+          <button type="submit">Update</button>
         </fieldset>
       </form>
+      <a href="/logout" class="logoutBtn">Logout</a>
       <% } else { %>
       <h1>Looks like you are not logged in yet.</h1>
       <h2>
