@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS messages (
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: CONNECTION_STRING,
+    connectionString: process.env.CONNECTION_STRING,
     ssl: {
       rejectUnauthorized: false, // This allows self-signed certificates. Set to true for strict SSL.
     },
