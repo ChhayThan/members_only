@@ -95,25 +95,29 @@ exports.postUpdateProfile = [
     }
 
     try {
-      bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          const admin = req.body.admin
-            ? req.body.admin === process.env.ADMIN
-              ? true
-              : false
-            : true;
-          await db.updateProfile(
-            req.user.id,
-            req.body.first_name,
-            req.body.last_name,
-            req.body.email,
-            hashedPassword,
-            admin
-          );
+      bcrypt.hash(
+        req.body.updated_password,
+        10,
+        async (err, hashedPassword) => {
+          if (err) {
+            throw new Error(err);
+          } else {
+            const admin = req.body.admin
+              ? req.body.admin === process.env.ADMIN
+                ? true
+                : false
+              : true;
+            await db.updateProfile(
+              req.user.id,
+              req.body.first_name,
+              req.body.last_name,
+              req.body.email,
+              hashedPassword,
+              admin
+            );
+          }
         }
-      });
+      );
       res.redirect("/profile?updated=true");
     } catch (err) {
       throw new Error(err);
